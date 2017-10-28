@@ -6,7 +6,6 @@ const server = http.createServer((req, res) => {
   if (method == 'GET' || method == 'HEAD') {
     res.setHeader('Content-Type', 'text/html');
     res.statusCoode = 200;
-    // res.end();
     if (method == 'GET') {
       res.write('<!doctype html>\r\n' +
         '<html>\r\n' +
@@ -16,7 +15,6 @@ const server = http.createServer((req, res) => {
       res.end();
     }
   } else if (method == 'POST') {
-
     req.on('error', (err) => {
       console.error(err);
     }).on('data', (chunk) => {
@@ -29,7 +27,6 @@ const server = http.createServer((req, res) => {
       res.statusCode = 302;
       res.setHeader('location', '/');
       res.end();
-
     })
   } else {
     res.statusCode = 403;
